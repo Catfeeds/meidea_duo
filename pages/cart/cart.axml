@@ -1,0 +1,48 @@
+<view class="cart">
+  <view class="cart_left" a:if="{{carts == ''}}">
+      <text>
+        购物车空空如也
+      </text>
+  </view>
+  <view class="cart_big" a:for="{{carts}}">
+    
+    <view class="cart_img">
+      <image src="{{item.photo_x}}" />
+    </view>
+    <view class="cart_content">
+      <view class="content_top">
+        <text> {{item.pro_name}} </text>
+      </view>
+      <view class="content_middle">
+        <text>所属店铺： {{item.shop_name}}</text>
+      </view>
+      <view class="content_bottom">
+        <view class="content_money">
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class="content_add">
+          <view class="add_minus">-</view>
+          <input type="text" value="1" />
+          <view class="add_plus">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="dele">
+      <icon type="clear" size="18" color="#eee" />
+    </view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class="cart_payment">
+  <view class="cart_payment_left">
+    <view class="cart_left" style="margin:0 20rpx;" onTap="choiceClick">
+      <image src="../../image/07-1.png" a:if="{{allChoice}}"/>
+      <image src="../../image/07.png" a:else />
+      <text style="margin:0 10rpx;">全选</text>
+      <text style="color:#f86e21;">{{total}}</text>
+    </view>
+  </view>
+  <view class="cart_payment_right">
+    <button type="primary" > 立即结算 </button>
+  </view>
+</view>
